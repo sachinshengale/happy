@@ -5,15 +5,11 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="JunitAntDemo">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../eclipse/"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse/"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
-    <path id="JUnit 4.libraryclasspath">
-        <pathelement location="${ECLIPSE_HOME}plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
-        <pathelement location="${ECLIPSE_HOME}plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
-    </path>
     <path id="JunitAntDemo.classpath">
         <pathelement location="bin"/>
         <pathelement location="lib/apache-mime4j-0.6.jar"/>
@@ -67,7 +63,7 @@
         <pathelement location="lib/xalan-2.7.2.jar"/>
         <pathelement location="lib/xercesImpl-2.11.0.jar"/>
         <pathelement location="lib/xml-apis-1.4.01.jar"/>
-        <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="lib/junit-4.12.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -102,7 +98,7 @@
         </unzip>
     </target>
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-       <!-- <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>-->
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
     <target name="VerifyRanorexApp">
