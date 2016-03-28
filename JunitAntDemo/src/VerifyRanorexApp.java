@@ -15,7 +15,7 @@ public class VerifyRanorexApp {
 	public static void setUp() throws Exception {
 		if (driver == null){
 			driver=new FirefoxDriver();
-			driver.get("http://www.ranorex.com/web-testing-examples/vip/");	   
+			driver.get("http://www.ranorex.com/web-testing-examples/vip/")  
 			Thread.sleep(2000);		
 		    driver.manage().window().maximize();
 		}
